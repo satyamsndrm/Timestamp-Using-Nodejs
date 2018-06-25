@@ -24,11 +24,20 @@ app.get("/api/hello", function (req, res) {
   res.json({greeting: 'hello API'});
 });
 
-app.route().get("/api/timestamp/:date_string").post("/api/timestamp/" , (req , res) => {
+app.get("/api/timestamp/:date_string" , (req , res) => {
     var dt = req.params.date_string;
-    console.log(dt);
+    //console.log(dt);
     var date = new Date(dt);
+    if(date){
+      dt = parseInt(dt);
+      date = new Date(dt);
+      console.log(date);
+    }
     res.json(date);
+});
+app.get("/api/timestamp/" , (req , res) => {
+  var date = new Date();
+  res.json(date);
 });
 
 
