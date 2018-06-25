@@ -29,19 +29,19 @@ app.get("/api/timestamp/:date_string" , (req , res) => {
     //console.log(dt);
     var date = new Date(dt);
     console.log(date);
-    if(date){
+    if(!date.getTime()){
       dt = parseInt(dt);
       console.log(dt);
       if(dt!=0){
-        //date = new Date(dt);
+        date = new Date(dt);
         //console.log(date);
       }
     }
-    res.json(date);
+    res.json({unix: date.getTime(), utc:date.toUTCString()});
 });
 app.get("/api/timestamp/" , (req , res) => {
   var date = new Date();
-  res.json(unix: date.getTime(), utc:);
+  res.json({unix: date.getTime(), utc:date.toUTCString()});
 });
 
 
