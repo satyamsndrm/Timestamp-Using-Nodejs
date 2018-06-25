@@ -28,16 +28,20 @@ app.get("/api/timestamp/:date_string" , (req , res) => {
     var dt = req.params.date_string;
     //console.log(dt);
     var date = new Date(dt);
+    console.log(date);
     if(date){
       dt = parseInt(dt);
-      date = new Date(dt);
-      console.log(date);
+      console.log(dt);
+      if(dt!=0){
+        //date = new Date(dt);
+        //console.log(date);
+      }
     }
     res.json(date);
 });
 app.get("/api/timestamp/" , (req , res) => {
   var date = new Date();
-  res.json(date);
+  res.json(unix: date.getTime(), utc:);
 });
 
 
